@@ -13,17 +13,17 @@ export const Button = ({
   onClick,
   disabled,
   customColor,
-  customLabel,
+  customLabel
 }: Props) => {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`w-full h-[46px] text-white rounded-[5px] font-semibold ${
+      className={`w-full h-[46px] text-white rounded-[5px] font-semibold flex-1 ${
         disabled
           ? "bg-gray-400 cursor-not-allowed"
           : customColor
-          ? "bg-neutral00" // Use custom color if customColor is true
+          ? "bg-neutral00"
           : "bg-[#639605] hover:bg-[#4d7304]"
       }`}
     >

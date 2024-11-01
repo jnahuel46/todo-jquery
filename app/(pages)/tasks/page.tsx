@@ -11,16 +11,16 @@ import { useTodoStore } from "@/store/todoStore";
 import { Modal } from "@/components/Modal";
 
 export default function TasksPage() {
-  const { todos, totalTasks, loading, fetchTodos, removeTodo } = useTodoStore();
+  const { todos, loading, fetchTodos, removeTodo } = useTodoStore();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const limit = 5;
+  const limit = 5; // Número máximo de tareas por página
   const [currentPage, setCurrentPage] = useState(1);
   const [initialFetch, setInitialFetch] = useState(true);
 
   useEffect(() => {
     if (initialFetch) {
-      fetchTodos(3);
+      fetchTodos(3); // Puedes ajustar este número según tus necesidades
       setInitialFetch(false);
     }
   }, [fetchTodos, initialFetch]);
@@ -30,8 +30,10 @@ export default function TasksPage() {
     currentPage * limit
   );
 
+  const totalTasks = todos.length; // Total de tareas actuales
+  const totalPages = Math.ceil(totalTasks / limit); // Calcular el total de páginas
+
   const changePage = (newPage: number) => {
-    const totalPages = Math.ceil(totalTasks / limit);
     if (newPage > 0 && newPage <= totalPages) {
       setCurrentPage(newPage);
     }
@@ -49,7 +51,7 @@ export default function TasksPage() {
         <CommonCard>
           <Loader />
         </CommonCard>
-      ) : !loading || paginatedTodos.length > 0 ? (
+      ) : paginatedTodos.length > 0 ? (
         paginatedTodos.map((task) => (
           <CommonCard key={task.id}>
             <TaskItem task={task} onDelete={handleDelete} />
@@ -65,16 +67,19 @@ export default function TasksPage() {
         <Button title="Add Task" onClick={() => setModalOpen(true)} />
       </div>
 
-      <div className="pt-[30px] gap-[10px] flex justify-between">
+      <div className="pt-[30px] flex justify-between items-center">
         <Button
           title="Previous"
           onClick={() => changePage(currentPage - 1)}
           disabled={currentPage === 1}
         />
+        <span className="flex-1 text-center mx-2">
+          Page {currentPage} of {totalPages === 0 ? 1 : totalPages}
+        </span>
         <Button
           title="Next"
           onClick={() => changePage(currentPage + 1)}
-          disabled={todos.length < 6}
+          disabled={currentPage === totalPages}
         />
       </div>
 
