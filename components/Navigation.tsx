@@ -22,13 +22,13 @@ export default function Navigation() {
         {menuItems.map((item) => (
           <div
             key={item.id}
-            className={`flex items-center h-full px-4 border-b-2 transition-colors ${
+            className={`flex items-center h-full px-4 border-b-2 ${
               isActive(item.href) ? "border-[#639605]" : "border-transparent"
             }`}
           >
             <Link
               href={item.href}
-              className={`font-open-sans text-base font-bold transition-colors ${
+              className={`font-open-sans text-base font-bold  ${
                 isActive(item.href)
                   ? "text-[#639605]"
                   : "text-[#555555] hover:text-[#639605]"
