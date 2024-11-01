@@ -11,6 +11,21 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        customBlack: "#000000",
+        customRed: "#FF0000",
+        neutralGrey: "#B3B3B3",
+        neutral00: "#FFFFFF",
+        neutral20: "#B3B3B3",
+        customGrey: "#555555"
+      },
+      fontFamily: {
+        "open-sans": ['"Open Sans"', "sans-serif"],
+      },
+      fontSize: {
+        "14px": "14px",
+      },
+      lineHeight: {
+        "19px": "19.07px",
       },
     },
   },
