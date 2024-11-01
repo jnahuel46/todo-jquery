@@ -1,11 +1,11 @@
 'use client'
-import { Button } from "@/components/Button";
-import CommonCard from "@/components/CommonCard";
-import PagesLayout from "@/components/PagesLayout";
-import { TitlePage } from "@/components/TitlePage";
+import { Button } from "@/components/atoms/Button";
+import CommonCard from "@/components/layouts/CommonCard";
+import PagesLayout from "@/components/layouts/PagesLayout";
+import { TitlePage } from "@/components/atoms/TitlePage";
 import { useState } from "react";
 import { z } from "zod";
-import ErrorMessage from "@/components/ErrorMessage";
+import ErrorMessage from "@/components/molecules/ErrorMessage";
 
 const formSchema = z.object({
     name: z

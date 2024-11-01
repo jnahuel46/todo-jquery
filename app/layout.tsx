@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Header from "../components/Header";
-import Navigation from "../components/Navigation";
+import Header from "../components/organisms/Header";
+import Navigation from "../components/organisms/Navigation";
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
 

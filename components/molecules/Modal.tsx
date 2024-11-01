@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { Button } from "./Button";
-import { useTodoStore } from "@/store/todoStore";
 import { z } from "zod";
-import ErrorMessage from "./ErrorMessage"; // Importar el nuevo componente
+import { useTodoStoreV2 } from "@/store/todo-store";
+import ErrorMessage from "./ErrorMessage";
+import { Button } from "../atoms/Button";
 
 const taskSchema = z.object({
   title: z.string().min(1, "El nombre es requerido"),
@@ -20,7 +20,7 @@ interface ModalProps {
 export const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [name, setName] = React.useState("");
   const [description, setDescription] = React.useState("");
-  const { addTodo } = useTodoStore();
+  const { addTodo } = useTodoStoreV2();
 
   // State for error handling
   const [errors, setErrors] = React.useState<{

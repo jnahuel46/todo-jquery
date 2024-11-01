@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Justificación de Elecciones Tecnológicas
 
-## Getting Started
+## Next.js
+Elegí **Next.js** como framework para esta aplicación debido a sus potentes características como el **renderizado del lado del servidor (SSR)** y la **generación de sitios estáticos (SSG)**. Esto no solo mejora el rendimiento de la aplicación, sino que también optimiza el SEO. Además, su estructura de carpetas sencilla y la integración nativa con React hacen que el desarrollo sea más fluido y escalable.
 
-First, run the development server:
+## Zustand
+La elección de **Zustand** para la gestión del estado fue excelente por varias razones. A diferencia de otras bibliotecas como Redux, Zustand es más ligero y fácil de usar, permitiendo una gestión del estado más sencilla y menos verbosa. Su enfoque basado en hooks se alinea perfectamente con la forma en que React maneja los componentes, lo que resulta en una experiencia de desarrollo más intuitiva.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Zod
+Opté por **Zod** para la validación de esquemas y datos debido a su enfoque en la simplicidad y la tipificación. Zod permite definir y validar datos de manera clara y concisa, mejorando la robustez de la aplicación. Su integración con TypeScript también facilita la detección temprana de errores, lo que contribuye a la calidad del código.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Atomic Design
+La implementación de **Atomic Design** en la arquitectura del proyecto proporciona una metodología eficaz para desarrollar componentes reutilizables y escalables. Al descomponer la interfaz en componentes atómicos, moleculares, orgánicos y plantillas, se fomenta la cohesión y la separación de preocupaciones. Esto no solo mejora la mantenibilidad del código, sino que también permite un desarrollo más ágil y eficiente.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Instrucciones para Ejecutar el Proyecto Localmente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para ejecutar la aplicación localmente, sigue estos pasos:
 
-## Learn More
+1. **Clona el repositorio:**
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd <NOMBRE_DEL_REPOSITORIO>```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+CONTINUAR ACA CON LA ATOMIC DESIGN

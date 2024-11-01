@@ -1,5 +1,5 @@
 // services/taskService.ts
-import { Task } from "@/components/TaskItem";
+import { Task } from "@/components/molecules/TaskItem";
 import axios from "axios";
 
 export const API_URL = "https://jsonplaceholder.typicode.com/todos";

@@ -1,89 +1,50 @@
-"use client";
+import PagesLayout from "@/components/layouts/PagesLayout";
+import { TodoList } from "@/components/organisms/TaskList";
+import { TitlePage } from "@/components/atoms/TitlePage";
 
-import { useEffect, useState } from "react";
-import { Button } from "@/components/Button";
-import CommonCard from "@/components/CommonCard";
-import PagesLayout from "@/components/PagesLayout";
-import { TitlePage } from "@/components/TitlePage";
-import { TaskItem } from "@/components/TaskItem";
-import Loader from "@/components/Loader";
-import { useTodoStore } from "@/store/todoStore";
-import { Modal } from "@/components/Modal";
+const API_URL = "https://jsonplaceholder.typicode.com/todos";
 
-export default function TasksPage() {
-  const { todos, loading, fetchTodos, removeTodo } = useTodoStore();
-  const [modalOpen, setModalOpen] = useState(false);
+interface Task {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+  description: string;
+}
 
-  const limit = 5; // Número máximo de tareas por página
-  const [currentPage, setCurrentPage] = useState(1);
-  const [initialFetch, setInitialFetch] = useState(true);
+export const getTodos = async (
+  page: number,
+  limit: number
+): Promise<{ tasks: Task[]; total: number }> => {
+  const response = await fetch(`${API_URL}?_page=${page}&_limit=${limit}`, {
+    cache: "no-store",
+  });
 
-  useEffect(() => {
-    if (initialFetch) {
-      fetchTodos(3); // Puedes ajustar este número según tus necesidades
-      setInitialFetch(false);
-    }
-  }, [fetchTodos, initialFetch]);
+  if (!response.ok) {
+    throw new Error("Failed to fetch tasks");
+  }
 
-  const paginatedTodos = todos.slice(
-    (currentPage - 1) * limit,
-    currentPage * limit
-  );
+  const totalCount = parseInt(response.headers.get("x-total-count") || "0", 10);
 
-  const totalTasks = todos.length; // Total de tareas actuales
-  const totalPages = Math.ceil(totalTasks / limit); // Calcular el total de páginas
+  const data = await response.json();
+  const parsedResponse: Task[] = data.map((el: Task) => ({
+    ...el,
+    description: el.title,
+    title: `Task ${el.id}`,
+  }));
 
-  const changePage = (newPage: number) => {
-    if (newPage > 0 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-    }
+  return {
+    tasks: parsedResponse,
+    total: totalCount,
   };
+};
 
-  const handleDelete = async (id: number) => {
-    await removeTodo(id); // Llama a la función de eliminación del store
-  };
-
+export default async function TasksPage() {
+  const { tasks } = await getTodos(1, 3);
   return (
     <PagesLayout>
       <TitlePage title="My Tasks" />
-
-      {loading ? (
-        <CommonCard>
-          <Loader />
-        </CommonCard>
-      ) : paginatedTodos.length > 0 ? (
-        paginatedTodos.map((task) => (
-          <CommonCard key={task.id}>
-            <TaskItem task={task} onDelete={handleDelete} />
-          </CommonCard>
-        ))
-      ) : (
-        <CommonCard>
-          <div>No tasks available.</div>
-        </CommonCard>
-      )}
-
-      <div className="pt-[30px]">
-        <Button title="Add Task" onClick={() => setModalOpen(true)} />
-      </div>
-
-      <div className="pt-[30px] flex justify-between items-center">
-        <Button
-          title="Previous"
-          onClick={() => changePage(currentPage - 1)}
-          disabled={currentPage === 1}
-        />
-        <span className="flex-1 text-center mx-2">
-          Page {currentPage} of {totalPages === 0 ? 1 : totalPages}
-        </span>
-        <Button
-          title="Next"
-          onClick={() => changePage(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        />
-      </div>
-
-      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <TodoList initialTodos={tasks} />
     </PagesLayout>
   );
 }

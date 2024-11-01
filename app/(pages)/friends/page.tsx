@@ -1,5 +1,5 @@
-import PagesLayout from "@/components/PagesLayout";
-import { TitlePage } from "@/components/TitlePage";
+import PagesLayout from "@/components/layouts/PagesLayout";
+import { TitlePage } from "@/components/atoms/TitlePage";
 
 export default function FriendsPage() {
   return (
