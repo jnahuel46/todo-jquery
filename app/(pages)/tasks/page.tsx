@@ -1,3 +1,4 @@
+// app/tasks/page.tsx
 import PagesLayout from "@/components/layouts/PagesLayout";
 import { TodoList } from "@/components/organisms/TaskList";
 import { TitlePage } from "@/components/atoms/TitlePage";
@@ -12,14 +13,9 @@ interface Task {
   description: string;
 }
 
-const getTodos = async (
-  page: number,
-  limit: number
-): Promise<{ tasks: Task[]; total: number }> => {
+const getTodos = async (page: number, limit: number): Promise<{ tasks: Task[]; total: number }> => {
   try {
-    const response = await fetch(`${API_URL}?_page=${page}&_limit=${limit}`, {
-      cache: "no-store",
-    });
+    const response = await fetch(`${API_URL}?_page=${page}&_limit=${limit}`);
 
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
@@ -51,12 +47,23 @@ const getTodos = async (
   }
 };
 
-export default async function TasksPage() {
-  const { tasks } = await getTodos(1, 3);
+const TasksPage = async () => {
+  let tasks: Task[] = [];
+  let error: string | undefined;
+
+  try {
+    const { tasks: fetchedTasks } = await getTodos(1, 3);
+    tasks = fetchedTasks;
+  } catch (err) {
+    error = `${err} Unable to fetch tasks. Please try again later.`;
+  }
+
   return (
     <PagesLayout>
       <TitlePage title="My Tasks" />
-      <TodoList initialTodos={tasks} />
+      {error ? <p>{error}</p> : <TodoList initialTodos={tasks} />}
     </PagesLayout>
   );
-}
+};
+
+export default TasksPage;
