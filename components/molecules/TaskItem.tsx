@@ -4,7 +4,7 @@ export interface Task {
   userId: number;
   id: number;
   title: string;
-  description: string; 
+  description: string;
   completed: boolean;
 }
 interface TaskItemProps {
@@ -13,9 +13,12 @@ interface TaskItemProps {
 }
 
 export const TaskItem = ({ task, onDelete }: TaskItemProps) => {
-
-  const handleDelete = () => {
-    onDelete(task.id); 
+  const handleDelete = async () => {
+    try {
+      await onDelete(task.id);
+    } catch (error) {
+      console.error("Error deleting task:", error);
+    }
   };
 
   return (
@@ -24,7 +27,10 @@ export const TaskItem = ({ task, onDelete }: TaskItemProps) => {
         <h3 className="font-semibold text-[#555555] mb-1">{task.title}</h3>
         <p className="text-sm text-gray-500">{task.description}</p>
       </div>
-      <button className="text-red-500 hover:text-red-700" onClick={handleDelete}>
+      <button
+        className="text-red-500 hover:text-red-700"
+        onClick={handleDelete}
+      >
         <svg
           width="18"
           height="18"

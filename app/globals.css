@@ -25,3 +25,8 @@ body {
   border-bottom: 5px solid red; /* Color de la flecha */
   margin-top: 5px; /* Ajusta la posición vertical de la flecha */
 }
+
+/* Chrome, Safari, Edge y Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

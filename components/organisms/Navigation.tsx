@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LinkNav } from "../atoms/LinkNav";
 
 const menuItems = [
   { id: "details", label: "Mis datos", href: "/details" },
@@ -18,7 +18,13 @@ export default function Navigation() {
 
   return (
     <nav className="h-[50px] px-6 bg-white z-40 border-b border-gray-200">
-      <div className="flex items-center h-full gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
+      <div
+        className="flex items-center h-full gap-4 overflow-x-auto whitespace-nowrap"
+        style={{
+          scrollbarWidth: "none", // Firefox
+          msOverflowStyle: "none", // IE 10+
+        }}
+      >
         {menuItems.map((item) => (
           <div
             key={item.id}
@@ -26,16 +32,7 @@ export default function Navigation() {
               isActive(item.href) ? "border-[#639605]" : "border-transparent"
             }`}
           >
-            <Link
-              href={item.href}
-              className={`font-open-sans text-base font-bold  ${
-                isActive(item.href)
-                  ? "text-[#639605]"
-                  : "text-[#555555] hover:text-[#639605]"
-              }`}
-            >
-              {item.label}
-            </Link>
+            <LinkNav item={item} isActive={isActive} />
           </div>
         ))}
       </div>

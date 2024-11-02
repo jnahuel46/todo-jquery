@@ -2,10 +2,10 @@ import React from "react";
 
 interface Props {
   title: string;
-  onClick?: () => void; // Make this optional if not always required
+  onClick?: () => void;
   disabled?: boolean;
-  customColor?: boolean; // If true, use custom color
-  customLabel?: boolean; // If true, use custom label color
+  customColor?: boolean;
+  customLabel?: boolean;
 }
 
 export const Button = ({

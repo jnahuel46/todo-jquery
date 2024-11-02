@@ -12,31 +12,43 @@ interface Task {
   description: string;
 }
 
-export const getTodos = async (
+const getTodos = async (
   page: number,
   limit: number
 ): Promise<{ tasks: Task[]; total: number }> => {
-  const response = await fetch(`${API_URL}?_page=${page}&_limit=${limit}`, {
-    cache: "no-store",
-  });
+  try {
+    const response = await fetch(`${API_URL}?_page=${page}&_limit=${limit}`, {
+      cache: "no-store",
+    });
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch tasks");
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}: ${response.statusText}`);
+    }
+
+    const totalCountHeader = response.headers.get("x-total-count");
+    if (!totalCountHeader) {
+      throw new Error("Total count header not found");
+    }
+    const totalCount = parseInt(totalCountHeader, 10);
+    if (isNaN(totalCount)) {
+      throw new Error("Total count is not a valid number");
+    }
+
+    const data = await response.json();
+    const parsedResponse: Task[] = data.map((el: Task) => ({
+      ...el,
+      description: el.title,
+      title: `Task ${el.id}`,
+    }));
+
+    return {
+      tasks: parsedResponse,
+      total: totalCount,
+    };
+  } catch (error) {
+    console.error("Failed to fetch tasks:", error);
+    throw new Error("Unable to fetch tasks. Please try again later.");
   }
-
-  const totalCount = parseInt(response.headers.get("x-total-count") || "0", 10);
-
-  const data = await response.json();
-  const parsedResponse: Task[] = data.map((el: Task) => ({
-    ...el,
-    description: el.title,
-    title: `Task ${el.id}`,
-  }));
-
-  return {
-    tasks: parsedResponse,
-    total: totalCount,
-  };
 };
 
 export default async function TasksPage() {

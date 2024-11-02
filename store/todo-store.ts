@@ -1,6 +1,6 @@
-import { createTask, deleteTask } from '@/app/services/servicesTodos';
-import { create } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { createTask, deleteTask } from "@/app/services/servicesTodos";
+import { create } from "zustand";
+import { devtools } from "zustand/middleware";
 
 export interface Todo {
   userId: number;
@@ -16,7 +16,7 @@ interface TodoStore {
   itemsPerPage: number;
   isLoading: boolean;
   setTodos: (todos: Todo[]) => void;
-  addTodo: (todo: Omit<Todo, 'id'>) => void;
+  addTodo: (todo: Omit<Todo, "id">) => void;
   deleteTodo: (id: number) => Promise<void>;
   setCurrentPage: (page: number) => void;
   getTotalPages: () => number;
@@ -25,50 +25,49 @@ interface TodoStore {
 }
 
 export const useTodoStoreV2 = create<TodoStore>()(
-    devtools((set, get) => ({
-    
-  todos: [],
-  currentPage: 1,
-  itemsPerPage: 5,
-  isLoading: false,
+  devtools((set, get) => ({
+    todos: [],
+    currentPage: 1,
+    itemsPerPage: 5,
+    isLoading: false,
 
-  setTodos: (todos) => set({ todos }),
+    setTodos: (todos) => set({ todos }),
 
-  addTodo: async (todo) => {
-    await createTask(todo);
-    set((state) => ({
-      todos: [
-        ...state.todos,
-        { ...todo, id: Math.max(...state.todos.map(t => t.id), 0) + 1 }
-      ]
-    }));
-  },
-
-  deleteTodo: async (id) => {
-    try {
-      // Simulate API call
-      await deleteTask(id);
+    addTodo: async (todo) => {
+      await createTask(todo);
       set((state) => ({
-        todos: state.todos.filter((todo) => todo.id !== id)
+        todos: [
+          ...state.todos,
+          { ...todo, id: Math.max(...state.todos.map((t) => t.id), 0) + 1 },
+        ],
       }));
-    } finally {
-      set({ isLoading: false });
-    }
-  },
+    },
 
-  setCurrentPage: (page) => set({ currentPage: page }),
+    deleteTodo: async (id) => {
+      try {
+        // Simulate API call
+        await deleteTask(id);
+        set((state) => ({
+          todos: state.todos.filter((todo) => todo.id !== id),
+        }));
+      } finally {
+        set({ isLoading: false });
+      }
+    },
 
-  getTotalPages: () => {
-    const { todos, itemsPerPage } = get();
-    return Math.ceil(todos.length / itemsPerPage);
-  },
+    setCurrentPage: (page) => set({ currentPage: page }),
 
-  getCurrentPageTodos: () => {
-    const { todos, currentPage, itemsPerPage } = get();
-    const start = (currentPage - 1) * itemsPerPage;
-    return todos.slice(start, start + itemsPerPage);
-  },
+    getTotalPages: () => {
+      const { todos, itemsPerPage } = get();
+      return Math.ceil(todos.length / itemsPerPage);
+    },
 
-  setLoading: (loading) => set({ isLoading: loading }),
-}))
+    getCurrentPageTodos: () => {
+      const { todos, currentPage, itemsPerPage } = get();
+      const start = (currentPage - 1) * itemsPerPage;
+      return todos.slice(start, start + itemsPerPage);
+    },
+
+    setLoading: (loading) => set({ isLoading: loading }),
+  }))
 );
