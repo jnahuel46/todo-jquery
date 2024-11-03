@@ -8,11 +8,12 @@
 }
 
 .font-open-sans {
-  font-family: var(--font-open-sans), sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
   background-color: #e8eaed;
+  font-family: "Open Sans", sans-serif;
 }
 
 .arrow {

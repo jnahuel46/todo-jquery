@@ -16,10 +16,13 @@ const config: Config = {
         neutralGrey: "#B3B3B3",
         neutral00: "#FFFFFF",
         neutral20: "#B3B3B3",
-        customGrey: "#555555"
+        customGrey: "#555555",
+        middleGrey: "#575757",
+        customGreen: "#639605",
       },
       fontFamily: {
         "open-sans": ['"Open Sans"', "sans-serif"],
+        sans: ['"Open Sans"', "ui-sans-serif", "system-ui", "sans-serif"], // Cambia a "sans"
       },
       fontSize: {
         "14px": "14px",

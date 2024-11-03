@@ -61,7 +61,7 @@ export function TodoList({ initialTodos }: TodoListProps) {
       )}
 
       <div className="pt-[30px]">
-        <Button title="Add Task" onClick={() => setModalOpen(true)} />
+        <Button title="Añadir tarea" onClick={() => setModalOpen(true)} />
       </div>
       <Paginator
         handlePage={changePage}

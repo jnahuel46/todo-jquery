@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     shortcut: "/dog.ico",
     apple: "/dog.ico",
   },
-
 };
 
 export default function RootLayout({

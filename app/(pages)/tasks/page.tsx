@@ -60,7 +60,7 @@ const TasksPage = async () => {
 
   return (
     <PagesLayout>
-      <TitlePage title="My Tasks" />
+      <TitlePage title="Mis tareas" />
       {error ? <p>{error}</p> : <TodoList initialTodos={tasks} />}
     </PagesLayout>
   );
