@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { useCartStore } from "@/store/cart-store";
 import { CartItem } from "../molecules/CartItem";
 import { Button } from "../atoms/Button";
