@@ -9,7 +9,7 @@ import { SideBarMenu } from "./SideBarMenu";
 import { Cart } from "./Cart";
 import { ProfileModal } from "./ProfileModal";
 import { SearchModal } from "./SearchModal";
-import ThemeToggle from "../atoms/ThemeToggle/ThemeToggle";
+import ThemeToggle from "../molecules/ThemeToggle";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
