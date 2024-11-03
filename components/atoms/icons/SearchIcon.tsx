@@ -1,12 +1,17 @@
 import React from "react";
 
-export const SearchIcon = () => {
+interface SearchIconProps {
+  handleOpen?: () => void;
+}
+
+export const SearchIcon = ({ handleOpen }: SearchIconProps) => {
   return (
     <svg
       width="21"
       height="20"
       viewBox="0 0 21 20"
       fill="none"
+      onClick={handleOpen}
       xmlns="http://www.w3.org/2000/svg"
       className="cursor-pointer text-middleGrey hover:text-customGreen transition-colors duration-200"
     >

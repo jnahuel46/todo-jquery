@@ -19,6 +19,7 @@ const config: Config = {
         customGrey: "#555555",
         middleGrey: "#575757",
         customGreen: "#639605",
+        customRed2: "#CC3872",
       },
       fontFamily: {
         "open-sans": ['"Open Sans"', "sans-serif"],

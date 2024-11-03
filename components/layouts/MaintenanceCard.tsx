@@ -1,6 +1,6 @@
 export const MaintenanceCard = () => {
   return (
-    <div className="flex items-center justify-center h-full w-full antialiased text-center bg-gray-100">
+    <div className="flex items-center justify-center h-full w-full antialiased text-center">
       <article className="mx-auto max-w-screen-md flex flex-col items-center bg-white">
         <h1 className="text-5xl mb-6 text-customGrey font-semibold">¡Volveremos pronto!</h1>
         <div>

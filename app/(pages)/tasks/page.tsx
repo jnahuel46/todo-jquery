@@ -34,7 +34,7 @@ const getTodos = async (page: number, limit: number): Promise<{ tasks: Task[]; t
     const parsedResponse: Task[] = data.map((el: Task) => ({
       ...el,
       description: el.title,
-      title: `Task ${el.id}`,
+      title: `Tarea ${el.id}`,
     }));
 
     return {

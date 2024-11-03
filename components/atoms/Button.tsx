@@ -6,6 +6,8 @@ interface Props {
   disabled?: boolean;
   customColor?: boolean;
   customLabel?: boolean;
+  customHeight?: string;
+  customWidth?: string;
 }
 
 export const Button = ({
@@ -13,13 +15,15 @@ export const Button = ({
   onClick,
   disabled,
   customColor,
-  customLabel
+  customLabel,
+  customHeight = "h-[46px]",
+  customWidth = "w-full",
 }: Props) => {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`w-full h-[46px] text-white rounded-[5px] font-semibold flex-1 ${
+      className={`${customWidth} ${customHeight} text-white rounded-[5px] font-semibold flex-1 ${
         disabled
           ? "bg-gray-400 cursor-not-allowed"
           : customColor

@@ -25,7 +25,7 @@ export const fetchTasks = async (
       (el: { title: string; id: number }) => ({
         ...el,
         description: el.title,
-        title: `Task ${el.id}`,
+        title: `Tarea ${el.id}`,
       })
     );
     return {
