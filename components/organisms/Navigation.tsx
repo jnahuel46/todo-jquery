@@ -17,19 +17,21 @@ export default function Navigation() {
   const isActive = (href: string) => pathname.startsWith(href);
 
   return (
-    <nav className="h-[50px] px-6 bg-white z-40 border-b border-gray-200">
+    <nav className="h-[50px] px-6 bg-white z-40 border-b border-gray-200 dark:bg-gray-800 dark:border-neutral100">
       <div
         className="flex items-center h-full gap-4 overflow-x-auto whitespace-nowrap"
         style={{
-          scrollbarWidth: "none", // Firefox
-          msOverflowStyle: "none", // IE 10+
+          scrollbarWidth: "none", 
+          msOverflowStyle: "none",
         }}
       >
         {menuItems.map((item) => (
           <div
             key={item.id}
             className={`flex items-center h-full px-4 border-b-2 ${
-              isActive(item.href) ? "border-[#639605]" : "border-transparent"
+              isActive(item.href)
+                ? "border-[#639605] dark:border-customOrange"
+                : "border-transparent"
             }`}
           >
             <LinkNav item={item} isActive={isActive} />

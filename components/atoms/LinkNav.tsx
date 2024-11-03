@@ -15,8 +15,8 @@ export const LinkNav = ({ item, isActive }: Props) => {
       href={item.href}
       className={`font-open-sans text-base font-bold  ${
         isActive(item.href)
-          ? "text-[#639605]"
-          : "text-[#555555] hover:text-[#639605]"
+          ? "text-[#639605] dark:text-customOrange"
+          : "text-[#555555] dark:text-neutral100 hover:text-[#639605] dark:hover:text-customOrange"
       }`}
     >
       {item.label}

@@ -27,9 +27,9 @@ export const Button = ({
         disabled
           ? "bg-gray-400 cursor-not-allowed"
           : customColor
-          ? "bg-neutral00"
+          ? "bg-neutral100"
           : "bg-[#639605] hover:bg-[#4d7304]"
-      }`}
+      } dark:bg-customOrange dark:hover:bg-customOrangeHover`}
     >
       <span className={customLabel ? "text-neutral20" : "text-white"}>
         {title}

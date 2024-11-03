@@ -12,7 +12,7 @@ export const CartICon = ({ handleOpen }: { handleOpen: () => void }) => {
         viewBox="0 0 28 21"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="cursor-pointer text-middleGrey hover:text-customGreen transition-colors duration-200"
+        className="cursor-pointer text-middleGrey hover:text-customGreen transition-colors duration-200 dark:text-neutral100 dark:hover:text-customOrange"
         onClick={handleOpen}
       >
         <g clipPath="url(#clip0_2217_50)">

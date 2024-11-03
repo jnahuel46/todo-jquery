@@ -12,7 +12,7 @@ $secondary-color: #cc292b;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   justify-content: center;
-  align-items: flex-start;
+  align-items: center; // Alineación vertical centrada
 
   &__dialog {
     background: white;
@@ -57,7 +57,9 @@ $secondary-color: #cc292b;
       padding-bottom: 6px;
     }
 
-    border-radius: 5px;
+    & { 
+      border-radius: 5px; // Evita la advertencia de Sass
+    }
   }
 
   &__sub-text {

@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={openSans.variable}>
-      <body>
+      <body className="bg-[#e8eaed] dark:bg-customBackground">
         <Header />
         <Navigation />
         <main>{children}</main>

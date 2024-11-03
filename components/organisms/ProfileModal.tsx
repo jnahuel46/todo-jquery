@@ -34,12 +34,12 @@ export const ProfileModal = ({ onClose, iconRef }: ProfileModalProps) => {
     <ModalLayout customStyle="w-[300px] rigth-[40px]">
       <div
         ref={modalContentRef}
-        className="bg-white rounded shadow-lg max-w-md mx-auto"
+        className="bg-white rounded shadow-lg max-w-md mx-auto dark:bg-gray-800 dark:text-neutral100"
       >
-        <div className="px-4 py-2 border-b border-gray-200">
-          <h2 className="font-semibold text-customGrey">Mi Perfil</h2>
+        <div className="px-4 py-2 border-b border-gray-200 dark:border-neutral100">
+          <h2 className="font-semibold text-customGrey dark:text-neutral100">Mi Perfil</h2>
         </div>
-        <div className="flex flex-col divide-y divide-gray-200">
+        <div className="flex flex-col divide-y divide-gray-200 dark:divide-neutral100">
           <div className="flex items-center px-6 py-3 gap-4">
             <Image
               src={profile}
@@ -49,8 +49,8 @@ export const ProfileModal = ({ onClose, iconRef }: ProfileModalProps) => {
               className="rounded-full"
             />
             <div className="flex flex-col">
-              <h3 className="text-customGrey font-semibold">Jane Doe</h3>
-              <p className="text-customGrey">jane.doe@example.com</p>
+              <h3 className="text-customGrey dark:text-neutral100 font-semibold">Jane Doe</h3>
+              <p className="text-customGrey dark:text-neutral100">jane.doe@example.com</p>
             </div>
           </div>
           <div className="px-6 py-3">

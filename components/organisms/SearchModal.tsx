@@ -34,12 +34,12 @@ export const SearchModal = ({ onClose, iconRef }: SearchModalProps) => {
     <ModalLayout customStyle="w-[300px] left-[40px]">
       <div
         ref={modalContentRef}
-        className="bg-white rounded shadow-lg max-w-md mx-auto"
+        className="bg-white rounded shadow-lg max-w-md mx-auto dark:bg-gray-800 dark:text-neutral100"
       >
-        <div className="px-4 py-2 border-b border-gray-200">
-          <h2 className="font-semibold text-customGrey">Busqueda</h2>
+        <div className="px-4 py-2 border-b border-gray-200 dark:border-neutral100 ">
+          <h2 className="font-semibold text-customGrey dark:text-neutral100">Busqueda</h2>
         </div>
-        <div className="flex flex-col divide-y divide-gray-200">
+        <div className="flex flex-col divide-y divide-gray-200 dark:divide-neutral100">
           <div className="relative h-[50px] gap-4 flex items-center px-6 py-3">
             <div className="absolute inset-y-0 start-6 flex items-center ps-3 pointer-events-none">
               <SearchIcon />

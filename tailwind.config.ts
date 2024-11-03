@@ -6,6 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",  
   theme: {
     extend: {
       colors: {
@@ -14,12 +15,15 @@ const config: Config = {
         customBlack: "#000000",
         customRed: "#FF0000",
         neutralGrey: "#B3B3B3",
-        neutral00: "#FFFFFF",
+        neutral100: "#FFFFFF",
         neutral20: "#B3B3B3",
         customGrey: "#555555",
         middleGrey: "#575757",
         customGreen: "#639605",
         customRed2: "#CC3872",
+        customOrange: "#cd6a2e",
+        customOrangeHover: "#6e340b",
+        customBackground: "#424345",
       },
       fontFamily: {
         "open-sans": ['"Open Sans"', "sans-serif"],

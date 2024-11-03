@@ -65,7 +65,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 pt-[27px] flex items-start justify-center z-50 bg-[#2C2C2CC2] backdrop-blur-md">
-      <div className="bg-white rounded-lg shadow-lg p-4 w-[90%] max-w-[600px] relative">
+      <div className="bg-white rounded-lg shadow-lg p-4 w-[90%] max-w-[600px] relative dark:bg-gray-800 dark:text-neutral100">
         <CloseIcon onClose={onClose} />
 
         <h2 className="text-lg font-semibold pt-[8px] mb-[32px]">
@@ -89,7 +89,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           onChange={(e) => setName(e.target.value)}
           className={`w-full mb-[18px] h-[45px] mt-1 pl-[18px] border rounded-md text-neutralGrey font-open-sans text-14px font-normal leading-19px ${
             errors.title ? "border-red-500" : "border-gray-300"
-          }`}
+          } bg-white dark:bg-customBackground`}
           placeholder="Nombre"
         />
 
@@ -108,7 +108,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           onChange={(e) => setDescription(e.target.value)}
           className={`w-full h-[156px] mt-1 pl-[18px] pt-[9px] border rounded-md text-neutralGrey font-open-sans text-14px font-normal leading-19px ${
             errors.description ? "border-red-500" : "border-gray-300"
-          }`}
+          } bg-white dark:bg-customBackground`}
         />
 
         <div className="flex gap-[10px] mt-[18px] justify-between">

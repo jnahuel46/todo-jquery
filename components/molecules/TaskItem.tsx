@@ -24,8 +24,8 @@ export const TaskItem = ({ task, onDelete }: TaskItemProps) => {
   return (
     <div className="flex items-center justify-between">
       <div>
-        <h3 className="font-semibold text-[#555555] mb-1">{task.title}</h3>
-        <p className="text-sm text-gray-500">{task.description}</p>
+        <h3 className="font-semibold text-[#555555] mb-1 dark:text-neutral100">{task.title}</h3>
+        <p className="text-sm text-gray-500 dark:text-neutral100">{task.description}</p>
       </div>
       <button
         className="text-red-500 hover:text-red-700"

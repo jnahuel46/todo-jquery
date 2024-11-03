@@ -9,6 +9,7 @@ import { SideBarMenu } from "./SideBarMenu";
 import { Cart } from "./Cart";
 import { ProfileModal } from "./ProfileModal";
 import { SearchModal } from "./SearchModal";
+import ThemeToggle from "../atoms/ThemeToggle/ThemeToggle";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function Header() {
   const searchIconRef = useRef<HTMLDivElement>(null);
 
   return (
-    <header className="h-[62px] px-4 flex items-center justify-between bg-white border-b border-gray-200">
+    <header className="h-[62px] px-4 flex items-center justify-between bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-neutral100">
       <div className="flex items-center gap-4 relative">
         <MenuIcon handleOpen={() => setIsMenuOpen(!isMenuOpen)} />
         <div ref={searchIconRef}>
@@ -44,6 +45,7 @@ export default function Header() {
       </div>
 
       <div className="flex items-center gap-4 relative">
+        <ThemeToggle />
         <div ref={userIconRef}>
           <UserIcon handleOpen={() => setIsProfileOpen(!isProfileOpen)} />
         </div>

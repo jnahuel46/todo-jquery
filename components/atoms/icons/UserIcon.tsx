@@ -8,7 +8,7 @@ export const UserIcon = ({ handleOpen }: { handleOpen: () => void }) => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="cursor-pointer text-middleGrey hover:text-customGreen transition-colors duration-200"
+      className="cursor-pointer text-middleGrey hover:text-customGreen transition-colors duration-200 dark:text-neutral100 dark:hover:text-customOrange"
       onClick={handleOpen}
     >
       <path

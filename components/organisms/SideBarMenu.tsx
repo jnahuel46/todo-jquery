@@ -39,7 +39,7 @@ export const menuItems: MenuItem[] = [
 
 export const SideBarMenu = ({ onClose }: SideBarMenuProps) => {
   return (
-    <div className="font-open-sans fixed inset-0 z-50 flex h-screen w-screen flex-col bg-white p-4 text-gray-700 shadow-xl md:w-[20rem] md:absolute">
+    <div className="font-open-sans fixed inset-0 z-50 flex h-screen w-screen flex-col bg-white dark:bg-gray-800 p-4 text-gray-700 dark:text-neutral100 shadow-xl border-r border-gray-200 dark:border-neutral100 md:w-[20rem] md:absolute">
       <CloseIcon onClose={onClose} />
       <TitlePage title="Tiendanimal" />
       <WarningMessage />

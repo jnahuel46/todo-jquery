@@ -15,7 +15,7 @@ export const Paginator = ({ currentPage, totalPages, handlePage }: Props) => {
         onClick={() => handlePage(currentPage - 1)}
         disabled={currentPage === 1}
       />
-      <span className="flex-1 text-center mx-2">
+      <span className="flex-1 text-center mx-2 dark:text-neutral100">
         Pag. {currentPage} de {totalPages === 0 ? 1 : totalPages}
       </span>
       <Button
