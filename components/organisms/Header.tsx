@@ -58,7 +58,7 @@ export default function Header() {
           <CartICon handleOpen={() => setIsCartOpen(!isCartOpen)} />
         </div>
         {isCartOpen && (
-          <Cart onClose={() => setIsCartOpen(false)} iconRef={cartIconRef} />
+          <Cart />
         )}
       </div>
       {isMenuOpen && <SideBarMenu onClose={() => setIsMenuOpen(false)} />}

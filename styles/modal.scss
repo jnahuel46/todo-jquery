@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap");
+
+// Variables de colores
+$primary-color: #7ab800;
+$secondary-color: #cc292b;
+
+.modal {
+  display: none; // Inicialmente oculto
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); // Fondo semi-transparente
+  justify-content: center;
+  align-items: center;
+
+  &__dialog {
+    background: white;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%; // 90% del ancho en móviles
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Agregar sombra al modal
+
+    // Estilos para pantallas menores a 768px
+    @media (max-width: 767px) {
+      width: 162px; // Ancho fijo en móviles
+      height: 192px; // Altura fija en móviles
+      padding: 10px; // Ajustar el padding si es necesario
+    }
+  }
+
+  &__content {
+    display: flex; // Usar flexbox para alinear
+    flex-direction: column; // Alinear en columna
+    justify-content: center; // Centrar verticalmente
+    align-items: center; // Centrar horizontalmente
+    text-align: center; // Centrar el texto
+  }
+
+  &__main-text {
+    font-family: "Nunito", sans-serif; // Aplicar la fuente Nunito
+    color: #333333; // Color del texto
+    text-align: center; // Alinear el texto al centro
+
+    // Estilos para pantallas menores a 768px
+    @media (max-width: 767px) {
+      font-size: 12px; // Tamaño de fuente en móviles
+      font-weight: 700; // Peso de fuente
+      line-height: 17px; // Altura de línea
+      padding: 4px; // Padding de 4px en móviles
+    }
+
+    // Estilos para pantallas mayores a 768px
+    @media (min-width: 768px) {
+      font-size: 20px; // Tamaño de fuente en pantallas grandes
+      font-weight: 700; // Peso de fuente
+      line-height: 26px; // Altura de línea
+      padding: 14px; // Padding de 14px en pantallas grandes
+    }
+    
+    border-radius: 5px; // Bordes redondeados (opcional)
+  }
+
+  &__sub-text {
+    font-family: "Nunito", sans-serif; // Aplicar la fuente Nunito
+    color: #333; // Color del texto
+    text-align: center; // Alinear el texto al centro
+
+    // Estilos para pantallas menores a 768px
+    @media (max-width: 767px) {
+      font-size: 12px; // Tamaño de fuente en móviles
+      font-weight: 400; // Peso de fuente
+      line-height: 17px; // Altura de línea
+      padding-bottom: 6px; // Eliminar padding en móviles
+    }
+
+    // Estilos para pantallas mayores a 768px
+    @media (min-width: 768px) {
+      font-size: 16px; // Tamaño de fuente en pantallas grandes
+      font-weight: 400; // Peso de fuente
+      line-height: 22px; // Altura de línea
+      padding-bottom: 14px; // Aplicar padding en pantallas grandes
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0; // Línea de separación en el header
+    padding-bottom: 10px; // Espaciado inferior
+  }
+
+  &__title {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.5rem;
+    color: $primary-color; // Color del título
+  }
+
+  &__close {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.5rem; // Aumentar tamaño del botón de cerrar
+    color: $secondary-color; // Color del botón de cerrar
+  }
+
+  &__body {
+    font-family: "Nunito", sans-serif;
+    margin: 20px 0;
+    color: #333; // Color del texto del cuerpo
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px; // Espaciado superior
+  }
+
+  &__button {
+    padding: 0;
+    border: none;
+    border-radius: 5px;
+    width: 143px;
+    height: 38px;
+    font-family: Nunito;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
+
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &--secondary {
+      background-color: $secondary-color;
+      color: #000000;
+    }
+
+    &--primary {
+      background-color: $primary-color;
+      color: #000000;
+    }
+
+    &:hover {
+      opacity: 0.8; // Efecto al pasar el mouse
+    }
+
+    // Estilos para pantallas menores a 768px
+    @media (max-width: 767px) {
+      width: 100%; // Ancho completo
+      height: 38px; // Altura consistente
+      font-size: 14px; // Tamaño de fuente más pequeño
+    }
+  }
+
+  // Estilos responsivos
+  @media (min-width: 768px) {
+    &__dialog {
+      width: 264px; // Ajustar el ancho en desktop
+      height: 264px; // Altura fija en desktop
+    }
+  }
+}

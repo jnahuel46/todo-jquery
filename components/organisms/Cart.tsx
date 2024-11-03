@@ -1,44 +1,32 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useCartStore } from "@/store/cart-store";
 import { CartItem } from "../molecules/CartItem";
 import { Button } from "../atoms/Button";
 import ModalLayout from "../layouts/ModalLayout";
+import $ from "jquery";
+import { ChallengueModal } from "./ChallengueModal";
 
-interface CartProps {
-  onClose: () => void;
-  iconRef: React.RefObject<HTMLDivElement>; // Referencia al ícono del carrito
-}
-
-export const Cart = ({ onClose, iconRef }: CartProps) => {
-  const { products, total, removeProduct, calculateTotal, resetCart } = useCartStore();
-  const modalContentRef = useRef<HTMLDivElement>(null);
+export const Cart = () => {
+  const { products, total, removeProduct, calculateTotal, resetCart } =
+    useCartStore();
 
   useEffect(() => {
     calculateTotal();
   }, [products, calculateTotal]);
 
-  const handleClickOutside = (event: MouseEvent) => {
-    // Verificar si el clic fue fuera del modal y fuera del icono del carrito
-    if (
-      modalContentRef.current &&
-      !modalContentRef.current.contains(event.target as Node) &&
-      iconRef.current &&
-      !iconRef.current.contains(event.target as Node)
-    ) {
-      onClose();
-    }
+  const handlePaymentClick = () => {
+    $("#paymentModal").css("display", "block"); // Mostrar el modal de pago
   };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  const closeModal = () => {
+    $("#paymentModal").css("display", "none"); // Cerrar el modal de pago
+  };
 
   return (
     <ModalLayout>
-      <div ref={modalContentRef} className="bg-white rounded shadow-lg max-w-md mx-auto">
+      <div
+        className="bg-white rounded shadow-lg max-w-md mx-auto"
+      >
         <div className="px-4 py-2 border-b border-gray-200">
           <h2 className="font-semibold text-customGrey">Carrito de Compras</h2>
         </div>
@@ -56,9 +44,17 @@ export const Cart = ({ onClose, iconRef }: CartProps) => {
             Total: ${total.toFixed(2)}
           </h3>
           <Button title="Reset" onClick={resetCart} customHeight="h-[30px]" />
-          <Button title="Pagar" onClick={onClose} customHeight="h-[30px]" />
+          <Button
+            title="Pagar"
+            onClick={() => {
+              handlePaymentClick();
+            }}
+            customHeight="h-[30px]"
+          />
         </div>
       </div>
+      {/* Modal de Pago */}
+      <ChallengueModal closeModal={closeModal} />
     </ModalLayout>
   );
 };
