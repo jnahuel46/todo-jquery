@@ -1,7 +1,7 @@
 import React from "react";
 
 interface LabelInputProps {
-  label: string;
+  label?: string;
 }
 
 export const LabelInput = ({ label }: LabelInputProps) => {
