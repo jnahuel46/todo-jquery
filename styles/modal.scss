@@ -1,88 +1,82 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap");
 
-// Variables de colores
 $primary-color: #7ab800;
 $secondary-color: #cc292b;
 
 .modal {
-  display: none; // Inicialmente oculto
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); // Fondo semi-transparente
+  background: rgba(0, 0, 0, 0.5);
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   &__dialog {
     background: white;
     border-radius: 8px;
     max-width: 500px;
-    width: 90%; // 90% del ancho en móviles
-    margin: auto;
+    width: 90%;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Agregar sombra al modal
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
-    // Estilos para pantallas menores a 768px
     @media (max-width: 767px) {
-      width: 162px; // Ancho fijo en móviles
-      height: 192px; // Altura fija en móviles
-      padding: 10px; // Ajustar el padding si es necesario
+      width: 162px;
+      height: 192px;
+      padding: 10px;
     }
   }
 
   &__content {
-    display: flex; // Usar flexbox para alinear
-    flex-direction: column; // Alinear en columna
-    justify-content: center; // Centrar verticalmente
-    align-items: center; // Centrar horizontalmente
-    text-align: center; // Centrar el texto
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   &__main-text {
-    font-family: "Nunito", sans-serif; // Aplicar la fuente Nunito
-    color: #333333; // Color del texto
-    text-align: center; // Alinear el texto al centro
+    font-family: "Nunito", sans-serif;
+    color: #333333;
+    text-align: center;
 
-    // Estilos para pantallas menores a 768px
     @media (max-width: 767px) {
-      font-size: 12px; // Tamaño de fuente en móviles
-      font-weight: 700; // Peso de fuente
-      line-height: 17px; // Altura de línea
-      padding: 4px; // Padding de 4px en móviles
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 17px;
+      padding: 4px;
     }
 
-    // Estilos para pantallas mayores a 768px
     @media (min-width: 768px) {
-      font-size: 20px; // Tamaño de fuente en pantallas grandes
-      font-weight: 700; // Peso de fuente
-      line-height: 26px; // Altura de línea
-      padding: 14px; // Padding de 14px en pantallas grandes
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 26px;
+      padding: 14px;
+      padding-bottom: 6px;
     }
-    
-    border-radius: 5px; // Bordes redondeados (opcional)
+
+    border-radius: 5px;
   }
 
   &__sub-text {
-    font-family: "Nunito", sans-serif; // Aplicar la fuente Nunito
-    color: #333; // Color del texto
-    text-align: center; // Alinear el texto al centro
+    font-family: "Nunito", sans-serif;
+    color: #333;
+    text-align: center;
 
-    // Estilos para pantallas menores a 768px
     @media (max-width: 767px) {
-      font-size: 12px; // Tamaño de fuente en móviles
-      font-weight: 400; // Peso de fuente
-      line-height: 17px; // Altura de línea
-      padding-bottom: 6px; // Eliminar padding en móviles
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 17px;
+      padding-bottom: 6px;
     }
 
-    // Estilos para pantallas mayores a 768px
     @media (min-width: 768px) {
-      font-size: 16px; // Tamaño de fuente en pantallas grandes
-      font-weight: 400; // Peso de fuente
-      line-height: 22px; // Altura de línea
-      padding-bottom: 14px; // Aplicar padding en pantallas grandes
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      padding-bottom: 14px;
     }
   }
 
@@ -90,34 +84,34 @@ $secondary-color: #cc292b;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #e0e0e0; // Línea de separación en el header
-    padding-bottom: 10px; // Espaciado inferior
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
   }
 
   &__title {
     font-family: "Nunito", sans-serif;
     font-size: 1.5rem;
-    color: $primary-color; // Color del título
+    color: $primary-color;
   }
 
   &__close {
     cursor: pointer;
     background: none;
     border: none;
-    font-size: 1.5rem; // Aumentar tamaño del botón de cerrar
-    color: $secondary-color; // Color del botón de cerrar
+    font-size: 1.5rem;
+    color: $secondary-color;
   }
 
   &__body {
     font-family: "Nunito", sans-serif;
     margin: 20px 0;
-    color: #333; // Color del texto del cuerpo
+    color: #333;
   }
 
   &__footer {
     display: flex;
     justify-content: space-between;
-    padding-top: 10px; // Espaciado superior
+    padding-top: 10px;
   }
 
   &__button {
@@ -131,7 +125,6 @@ $secondary-color: #cc292b;
     font-weight: 600;
     line-height: 22px;
     text-align: center;
-
     cursor: pointer;
     transition: background-color 0.3s;
 
@@ -146,22 +139,20 @@ $secondary-color: #cc292b;
     }
 
     &:hover {
-      opacity: 0.8; // Efecto al pasar el mouse
+      opacity: 0.8;
     }
 
-    // Estilos para pantallas menores a 768px
     @media (max-width: 767px) {
-      width: 100%; // Ancho completo
-      height: 38px; // Altura consistente
-      font-size: 14px; // Tamaño de fuente más pequeño
+      width: 100%;
+      height: 38px;
+      font-size: 14px;
     }
   }
 
-  // Estilos responsivos
   @media (min-width: 768px) {
     &__dialog {
-      width: 264px; // Ajustar el ancho en desktop
-      height: 264px; // Altura fija en desktop
+      width: 264px;
+      height: 264px;
     }
   }
 }

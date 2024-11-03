@@ -32,6 +32,17 @@ A design approach that organizes interface components in a hierarchy (atoms, mol
 
 The task application includes custom form validations and robust error handling, providing clear error messages and notifications to users when failures occur in task creation, editing, or deletion. Creation, update, and deletion operations are protected with detailed error handling, ensuring that any API or client errors are effectively communicated to the user.
 
+## Additional Features
+
+- Maintenance screen of undeveloped features
+- Form validations with Zod and custom errors
+- Shopping cart with Zustand
+- Side menu in icon menu
+- Search bar (mocked)
+- Profile modal (mocked)
+- Unit testing with Jest
+- Hallowen theme selector
+
 ## Prerequisites
 
 - Node.js - Recommended version: v16 or higher
@@ -42,7 +53,7 @@ To run the application in your local environment:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/user/next-template.git
+git clone https://github.com/jnahuel46/todo-jquery
 ```
 
 2. Navigate to the project directory:
@@ -64,7 +75,7 @@ npm run dev
 
 ## Deployment
 
-The application is deployed on Vercel **https://todo-app-v2-iota.vercel.app/details**.
+The application is deployed on Vercel **https://todo-jquery-i9ttqebki-jeremias-muriettes-projects.vercel.app/details**.
 
 ## API Endpoints
 

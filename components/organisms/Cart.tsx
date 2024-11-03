@@ -15,11 +15,11 @@ export const Cart = () => {
   }, [products, calculateTotal]);
 
   const handlePaymentClick = () => {
-    $("#paymentModal").css("display", "block"); // Mostrar el modal de pago
+    $("#paymentModal").css("display", "flex"); 
   };
 
   const closeModal = () => {
-    $("#paymentModal").css("display", "none"); // Cerrar el modal de pago
+    $("#paymentModal").css("display", "none");
   };
 
   return (
