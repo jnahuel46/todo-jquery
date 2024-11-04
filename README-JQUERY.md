@@ -72,4 +72,3 @@ The project maintains a clear and organized structure:
 - /styles
   - modal.scss
 
-Translated with DeepL.com (free version)
