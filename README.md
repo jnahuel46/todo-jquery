@@ -1,6 +1,7 @@
 # Todo-Challenge - Modal Challenge
 
 This project is a task management application developed with Next.js, allowing users to perform CRUD operations on a task list. The application employs both server-side rendering (SSR) and client-side rendering (CSR) and is organized following the Atomic Design approach.
+Also in this project its included the Modal Challenge, for more information go to README-JQUERY.md.
 
 #### Data Handling Clarification
 

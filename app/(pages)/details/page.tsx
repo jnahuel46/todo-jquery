@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import { Button } from "@/components/atoms/Button";
 import CommonCard from "@/components/layouts/CommonCard";
 import PagesLayout from "@/components/layouts/PagesLayout";
@@ -39,10 +39,11 @@ export default function DetailsPage() {
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrors({});
+    setErrors({}); // Resetea los errores
 
     const newErrors: { name?: string; email?: string; phone?: string } = {};
 
+    // Validar nombre
     try {
       formSchema.shape.name.parse(name);
     } catch (error) {
@@ -51,6 +52,7 @@ export default function DetailsPage() {
       }
     }
 
+    // Validar email
     try {
       formSchema.shape.email.parse(email);
     } catch (error) {
@@ -59,6 +61,7 @@ export default function DetailsPage() {
       }
     }
 
+    // Validar teléfono
     try {
       formSchema.shape.phone.parse(phone);
     } catch (error) {
@@ -67,7 +70,7 @@ export default function DetailsPage() {
       }
     }
 
-    setErrors(newErrors);
+    setErrors(newErrors); // Actualiza el estado de errores
 
     if (Object.keys(newErrors).length === 0) {
       console.log("Datos válidos:", { name, email, phone });
@@ -86,34 +89,32 @@ export default function DetailsPage() {
               type="text"
               name={name}
               setName={setName}
-              errors={errors}
-              setErrors={setErrors}
+              errors={errors.name} // Se pasa el error específico como string
+              setErrors={(error) => setErrors((prev) => ({ ...prev, name: error }))} // Solo actualiza el error de este campo
               placeholder="Nombre"
             />
           </div>
 
           <div>
             <LabelInput label="Email" />
-
             <InputCustom
               type="email"
               name={email}
               setName={setEmail}
-              errors={errors}
-              setErrors={setErrors}
+              errors={errors.email} // Se pasa el error específico como string
+              setErrors={(error) => setErrors((prev) => ({ ...prev, email: error }))} // Solo actualiza el error de este campo
               placeholder="Email"
             />
           </div>
 
           <div>
             <LabelInput label="Teléfono" />
-
             <InputCustom
               type="tel"
               name={phone}
               setName={setPhone}
-              errors={errors}
-              setErrors={setErrors}
+              errors={errors.phone} // Se pasa el error específico como string
+              setErrors={(error) => setErrors((prev) => ({ ...prev, phone: error }))} // Solo actualiza el error de este campo
               placeholder="Teléfono"
             />
           </div>
